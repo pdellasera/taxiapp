@@ -1,0 +1,87 @@
+<plugdo-modal>
+    <data>
+        {
+            "css":"",
+            "codeID":"",
+            "date":"",
+            "short":""
+        }
+    </data>
+    <template>
+        <div id="plugdo-modal-component" class="container-fluid">
+            <div class="row justify-content-md-center" style="height: 8%;">
+                <div class="col-lg-4 col-md-6 col-sm-12" style="background-color: #FFFFFF;">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <button id="plugdo-modal-button-close" type="button" class="btn btn-link float-right"
+                                    style="color: #888888; font-weight: 500; font-size: 20px; text-decoration: none;">X</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row justify-content-md-center" style="height: 92%;">
+                <div class="col-lg-4 col-md-6 col-sm-12" style="background-color: #FFFFFF;">
+
+                    <div class="container">
+                        <div class="row">
+                            <div id="plugdo-modal-content" class="col-lg-12 col-md-12 col-sm-12">
+                                <div id="modal-content-text" class="row justify-content-md-center">
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </template>
+    <scripts>
+        $(document).ready(function () {
+            $("#plugdo-modal-button-close").click(function () {
+                $("#plugdo-modal-component").hide();
+                $("#plugdo-modal-content").empty();
+
+                var pageName = window.location.hash.replace("#", "");
+
+                if (pageName.indexOf("/") != -1) {
+                    var pages = pageName.split("/");
+                    pageName = pages[0];
+
+                    window.location.hash = "#" + pageName;
+                }
+            });
+
+            $("#plugdo-modal-component").hide();
+        });
+    </scripts>
+    <styles>
+        @media only screen and (min-width: 601px) {
+            #plugdo-modal-component {
+                background-color: #F4F6F9;
+                height: 100%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow: auto;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            #plugdo-modal-component {
+                background-color: #FFFFFF;
+                height: 100%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow: auto;
+            }
+        }
+    </styles>
+</plugdo-modal>

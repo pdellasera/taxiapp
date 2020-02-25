@@ -1,0 +1,35 @@
+<div id="modal-content-text" class="row justify-content-md-center">
+    <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="row" style="padding-bottom: 20px;">
+            <div class="col-12 text-center">
+                <h4>Producto Vendido</h4>
+                <span>Id.: <%= code%></span> <br><br>
+                <a href="/#sales/close" type="submit" class="btn btn-danger">Cerrar Venta</a>
+              
+            </div>
+        </div>
+        <div class="row" style="padding-bottom: 20px;">
+            <div class="col-12">
+                <hr>
+                <h6><%= date%></h6>
+                <%= short%><br>
+                <span class="small-link"><%= long%></span>
+                <hr>
+                <h6>Pagado con</h6>
+                <%=brand%> <%=method%> <%= last4dig%> <br>
+                en <%=date%>
+                <hr>
+
+                <h6>Id. de transacción</h6>
+                <%=transactionID%>
+                <hr>
+
+                <h6>Información del comprador</h6>
+                <%=name%> <br>
+                <%=email%> <br>
+                (507) <%=phone%>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

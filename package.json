@@ -1,0 +1,25 @@
+{
+  "name": "module-venta",
+  "version": "1.0.0",
+  "description": "modulo de usuario shoperiz ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "shoperiz"
+  ],
+  "author": "Porfirio Castillo",
+  "license": "ISC",
+  "dependencies": {
+    "express-locale": "^2.0.0",
+    "moment": "^2.24.0",
+    "mysql-connector-plugdo-js": "^1.0.0",
+    "plugdo-node": "^1.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
