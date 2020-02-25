@@ -91,7 +91,52 @@ $(document).ready(function () {
             })
         }
     }
-  
+    var page_addresses = {
+        name: "addresses",
+        page: "/secure/addresses.html",
+        classInParent: true,
+        postLoad: function () {
+            $(document).ready(function () {
+                $(".needHide").css("display", "none")
+                view.load()
+                closeMenuInLoadPage()
+            })
+        }
+    }
+    var page_home_addresses = {
+        name: "home-address",
+        page: "/secure/home-address.html",
+        classInParent: true,
+        postLoad: function () {
+            $(document).ready(function () {
+                $(".needHide").css("display", "none")
+                view.load()
+            })
+        }
+    }
+    var page_add_new_address = {
+        name: "add-new-address",
+        page: "/secure/add-new-address.html",
+        classInParent: true,
+        postLoad: function () {
+            $(document).ready(function () {
+                $(".needHide").css("display", "none")
+                view.load()
+            })
+        }
+    }
+    var page_setting = {
+        name: "setting",
+        page: "/secure/settings.html",
+        classInParent: true,
+        postLoad: function () {
+            $(document).ready(function () {
+                $(".needHide").css("display", "none")
+                view.load()
+                closeMenuInLoadPage()
+            })
+        }
+    }
     // LOAD LAYOUT
     route.load({
         el: "#container",
@@ -117,7 +162,11 @@ $(document).ready(function () {
     routing.register(page_addNewCart);
     routing.register(page_historial);
     routing.register(page_tripDetails);
-    routing.register( page_onlinesupport);
+    routing.register(page_onlinesupport);
+    routing.register(page_addresses);
+    routing.register(page_home_addresses);
+    routing.register(page_add_new_address);
+    routing.register(page_setting);
     routing.modal();
 
 });

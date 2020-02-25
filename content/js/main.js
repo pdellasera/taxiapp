@@ -257,7 +257,10 @@ $(document).ready(function(){
     $(document).on('click','.ride-status .approved-icon.call', function(){
         $(this).addClass('in-process');
     });
-
+    $(document).on('click','.promoCode', function(){
+        closeMenuInLoadPage()
+        $('#promoCode').modal('toggle')
+    });
     $(document).on('click','.pickup-btn-container .approved-icon.call', function(){
         $(this).addClass('in-process');
         $(this).find('button').focusout();
