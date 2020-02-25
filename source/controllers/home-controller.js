@@ -9,7 +9,6 @@ mvc.controller({
   };
 })
 
-
 mvc.controller({
   name: "home",
   action: "sign-up-email",
@@ -28,6 +27,17 @@ mvc.controller({
 }, function (req) {
   return {
       title: "Index User",
+      location: global.config.location
+  };
+})
+
+mvc.controller({
+  name: "home",
+  action: "sign-in",
+  path:"/sign-in"
+}, function (req) {
+  return {
+      title: "Login",
       location: global.config.location
   };
 })

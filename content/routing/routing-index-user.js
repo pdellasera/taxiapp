@@ -5,8 +5,6 @@ $(document).ready(function () {
         view.components.handler.sleep(500);
     }
 
-
-
     // SETING PAGE
     var page_profile = {
         name: "profile",
@@ -93,6 +91,7 @@ $(document).ready(function () {
             })
         }
     }
+  
     // LOAD LAYOUT
     route.load({
         el: "#container",
