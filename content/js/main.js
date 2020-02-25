@@ -2,7 +2,7 @@ document.onreadystatechange = function () {
     var state = document.readyState;
     if (state == 'complete') {
         document.getElementById('interactive');
-        document.getElementById('load').style.visibility="hidden";
+        //document.getElementById('load').style.visibility="hidden";
     }
 }
 $(document).ready(function(){
@@ -680,6 +680,7 @@ function fromSetRouteToAddRoute(){
 var map;
 var directionsDisplay;
 
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         mapTypeControl: false,
@@ -905,3 +906,13 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+
+function closeMenuInLoadPage(){
+    var main_menu = $('.main-menu');
+    main_menu.hide().css('display','flex').animate({
+        width: "toggle"
+    }, 300);
+    $('.menu-open').addClass('closed');
+    $('#load .fa-spin').show();
+    $('#load').css('visibility','hidden');
+}
