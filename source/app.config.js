@@ -1,11 +1,10 @@
-
 const setting = {
   dev: {
     db: {
       user: "root",
       password: "",
       host: "localhost",
-      database: "module_ventas"
+      database: "app-driver"
     }
   },
   prod: {

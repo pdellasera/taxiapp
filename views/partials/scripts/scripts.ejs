@@ -8,6 +8,7 @@
 <script src="<%=location%>/js/jquery-3.4.1.js"></script>
 <script src="<%=location%>/js/popper.min.js"></script>
 <script src="<%=location%>/js/bootstrap.min.js"></script>
+<script src="<%=location%>/js/maps-handler.js"></script>
 <script src="<%=location%>/js/main.js"></script>
 <script src="<%=location%>/js/history.js"></script>
 
@@ -15,7 +16,9 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <% if(title == "Index User"){%>
     <script src="<%=location%>/routing/routing-index-user.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmwbZFOM6zFZpFMOng9mZMc-UzQtXvsaU&amp;libraries=places&amp;callback=initMap"></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Jo0QCio9e6cxw7zkSWB7B_F4MzLysaY&libraries=places&callback=initMap"
+  type="text/javascript"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Jo0QCio9e6cxw7zkSWB7B_F4MzLysaY&amp;libraries=places&amp;callback=initMap"></script> -->
 <%}%>
 
 <!-- <script src="<%=location%>/lib/lib-upload-images.js"></script>

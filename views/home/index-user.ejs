@@ -34,7 +34,7 @@
 
             <div class="hidden">
                 <div class="margin-top-10 height-auto" id="origin-input-container">
-                    <div class="w-100 map-input-container map-input-container-top">
+                    <div class="w-100 map-input-container map-input-container-top" style="display: none;">
                         <span class="fas fa-location-arrow location-icon-rotate map-input-icon"></span>
                         <div class="map-input display-flex">
                             <input id="origin-input" class="controls flex-1" type="text"
@@ -49,7 +49,7 @@
                         <span class="map-input-icon"><img src="../icons/circle.svg" alt="Current Location Icon"></span>
                         <div class="map-input display-flex">
                             <input id="destination-input" class="controls flex-1" type="text"
-                                placeholder="Enter a destination location">
+                                placeholder="A donde vamos?">
                             <span class="mic"><img src="../icons/microphone.svg" alt="Microphone Icon"></span>
                             <span class="remove">
                                 <img src="../icons/cross-light.svg" alt="Remove Icon Light Color">
@@ -68,12 +68,13 @@
 
                 <!--Request Ride Button Container Start-->
                 <div class="request-ride-btn hidden">
-                    <button type="button" class="btn btn-primary">Request a Ride</button>
+                    <button type="button" class="btn btn-primary">
+                        Solicitar transporte</button>
                 </div>
                 <!--Request Ride Button Container End-->
 
                 <!--Choose a Car Container Start-->
-                <div class="ride-options-bottom hidden">
+                <!-- <div class="ride-options-bottom hidden">
                     <div class="cars-options">
                         <div class="car-option" data-about-target-id="about-section-1">
                             <img src="../icons/audi.svg" alt="Car Option 1">
@@ -88,36 +89,36 @@
                     <div class="about-section">
                         <div class="about-section-1 hidden">
                             <div class="about-section-title">
-                                Economy Ride: <strong>$30.00</strong> / 6.85 km /
+                                Taxis: <strong>$5.00</strong> / 6.85 km /
                                 <span class="black-text">3 Minutes</span>
                             </div>
                             <div class="about-section-more">
-                                NOTE: This is an approximate estimate. Actual cost may vary according
-                                to the traffic.
+                                NOTE: Esta es una estimación aproximada. El costo real puede variar según
+                                al trafico.
                             </div>
                         </div>
                         <div class="about-section-2">
                             <div class="about-section-title">
                                 <div class="about-section-title">
-                                    Limo Ride: <strong>$50.00</strong> / 6.85 km /
+                                    Sedan: <strong>$7.00</strong> / 6.85 km /
                                     <span class="black-text">7 Minutes</span>
                                 </div>
                             </div>
                             <div class="about-section-more">
-                                NOTE: This is an approximate estimate. Actual cost may vary according
-                                to the traffic.
+                                NOTE: Esta es una estimación aproximada. El costo real puede variar según
+                                al trafico.
                             </div>
                         </div>
                         <div class="about-section-3 hidden">
                             <div class="about-section-title">
                                 <div class="about-section-title">
-                                    Super Ride: <strong>$100.00</strong> / 6.85 km /
+                                    SUV: <strong>$10.50</strong> / 6.85 km /
                                     <span class="black-text">10 Minutes</span>
                                 </div>
                             </div>
                             <div class="about-section-more">
-                                NOTE: This is an approximate estimate. Actual cost may vary according
-                                to the traffic.
+                                NOTE: Esta es una estimación aproximada. El costo real puede variar según
+                                al trafico.
                             </div>
                         </div>
                     </div>
@@ -127,8 +128,8 @@
                                 <img src="../icons/wishes.svg" class="h-100" alt="Wishes Icon">
                             </div>
                             <div class="payment-option-content">
-                                Wishes
-                                <span class="payment-options-more">Write your wishes to driver</span>
+                                Deseo
+                                <span class="payment-options-more">Escribe lo que deseas en el servicio</span>
                             </div>
                         </div>
                         <div class="default-payment-method-container display-flex">
@@ -136,15 +137,85 @@
                                 <img src="../icons/cash.svg" alt="Cash Icon" class="h-100">
                             </div>
                             <div class="payment-option-content">
-                                Cash
-                                <span class="payment-options-more">Default Payment Method</span>
+                                Efectivo
+                                <span class="payment-options-more">Metodo de pago por defecto</span>
                             </div>
                         </div>
                     </div>
                     <div class="confirm-ride-btn">
-                        <button type="button" class="btn btn-primary">Confirm</button>
+                        <button type="button" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </div> -->
+                <!--Choose a Car Container End-->
+
+                <!--INFORMACION DEL COSTO DE TU RECORRIDO-->
+                <div class="row">
+                    <div class="col-sm-6 col-md-12 col-lg-12">
+                        <div class="card mr-exp">
+                           <div class="ride-options-bottom">
+                            <div class="about-section mt-3">
+                                <div class="about-section-1 hidden">
+                                    <div class="about-section-title">
+                                        Taxis: <strong>$5.00</strong> / 6.85 km /
+                                        <span class="black-text">3 Minutes</span>
+                                    </div>
+                                    <div class="about-section-more">
+                                        NOTE: Esta es una estimación aproximada. El costo real puede variar según
+                                        al trafico.
+                                    </div>
+                                </div>
+                                <div class="about-section-2">
+                                    <div class="about-section-title">
+                                        <div class="about-section-title">
+                                            Costo aproximado: <strong>$7.00</strong> / 6.85 km /
+                                            <span class="black-text">7 Minutes</span>
+                                        </div>
+                                    </div>
+                                    <div class="about-section-more">
+                                        NOTE: Esta es una estimación aproximada. El costo real puede variar según
+                                        al trafico.
+                                    </div>
+                                </div>
+                                <div class="about-section-3 hidden">
+                                    <div class="about-section-title">
+                                        <div class="about-section-title">
+                                            SUV: <strong>$10.50</strong> / 6.85 km /
+                                            <span class="black-text">10 Minutes</span>
+                                        </div>
+                                    </div>
+                                    <div class="about-section-more">
+                                        NOTE: Esta es una estimación aproximada. El costo real puede variar según
+                                        al trafico.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-options">
+                                <div class="send-wishes-container">
+                                    <div class="float-left wishes">
+                                        <img src="../icons/wishes.svg" class="h-100" alt="Wishes Icon">
+                                    </div>
+                                    <div class="payment-option-content">
+                                        Deseo
+                                        <span class="payment-options-more">Escribe lo que deseas en el servicio</span>
+                                    </div>
+                                </div>
+                                <div class="default-payment-method-container display-flex">
+                                    <div class="float-left wishes">
+                                        <img src="../icons/cash.svg" alt="Cash Icon" class="h-100">
+                                    </div>
+                                    <div class="payment-option-content">
+                                        Efectivo
+                                        <span class="payment-options-more">Metodo de pago por defecto</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> 
+                        </div>
+                        
                     </div>
                 </div>
+
                 <!--Choose a Car Container End-->
 
                 <!--Wish Container Start-->
@@ -156,17 +227,19 @@
                         <span class="clearfix"></span>
                     </div>
                     <div class="wish-content-intro-container">
-                        <span class="write-wishes-text">Write Wishes To Driver</span>
+                        <span class="write-wishes-text">Escribe lo que deseas en tu servicio</span>
                         <span class="float-right"><img src="../icons/angle-right.svg" alt="Angle Right Icon"></span>
                     </div>
                     <div class="font-weight-light wishes-main-text">
                         <p>
-                            By Clicking on the link above, you can write your comments or wishes to the driver.
+
+                            Al hacer clic en el enlace de arriba, puede escribir sus comentarios o deseos al conductor.
                         </p>
                         <p>
-                            Please write a polite message and kindly state your wishes.
-                            Make sure that your wishes will not make the driver uncomfortable.
-                            Enjoy your ride!
+
+                            Por favor escriba un mensaje cortés e indique amablemente sus deseos.
+                            Asegúrese de que sus deseos no incomoden al conductor.
+                            ¡Disfruta tu paseo!
                         </p>
                     </div>
                     <div class="enter-wish hidden">
@@ -174,7 +247,7 @@
                             placeholder="Please enter your wishes here..."></textarea>
                     </div>
                     <div class="send-wish-btn hidden">
-                        <button type="button" class="btn btn-primary">Send</button>
+                        <button type="button" class="btn btn-primary">Enviar</button>
                     </div>
                 </div>
                 <!--Wish Container End-->
@@ -183,31 +256,31 @@
                 <div class="payment-options-container hidden">
                     <div class="payment-ready-btn">
                         <span class="text-uppercase float-right ready">
-                            Ready
+                            Listo
                             <img class="hidden" src="../icons/close.svg" alt="Close Icon"></span>
                     </div>
                     <div class="payment-options-intro-container">
-                        <span class="payment-options-text"><span class="fas fa-dollar-sign"></span> Payment By
-                            Cash</span>
+                        <span class="payment-options-text"><span class="fas fa-dollar-sign"></span> Pago en
+                            efectivo</span>
                         <span class="fas fa-chevron-down float-right"></span>
                     </div>
                     <div>
                         <ul class="payment-option-list hidden">
                             <li>
-                                <span class="fas fa-dollar-sign"></span> Payment By Cash
+                                <span class="fas fa-dollar-sign"></span>Efectivo
                                 <span class="float-right check">
                                     <img src="../icons/check.svg" alt="Check Icon">
                                 </span>
                             </li>
                             <li>
-                                <span class="fab fa-cc-visa"></span> Credit Card
+                                <span class="fab fa-cc-visa"></span> Tarjeta de credito
                                 <span class="float-right hidden check">
                                     <img src="../icons/check.svg" alt="Check Icon">
                                 </span>
                             </li>
                             <li>
                                 <span class="paypal-icon"><img src="../icons/paypal.svg" alt="Paypal Icon"></span>
-                                PayPal
+                                Shoperiz
                                 <span class="float-right hidden check">
                                     <img src="../icons/check.svg" alt="Check Icon">
                                 </span>
@@ -215,12 +288,12 @@
                         </ul>
                     </div>
                     <div class="add-new-card-container">
-                        <button type="button" class="btn btn-dark">Add New Credit Card <img class="plus-icon"
+                        <button type="button" class="btn btn-dark">Agregar nuevo método de pago<img class="plus-icon"
                                 src="../icons/plus.svg" alt="Add Icon"></button>
                     </div>
                     <div class="payment-options-main-text">
-                        Paying by card is fast and convenient option. Click the button to
-                        add a new card. The amount will be charged after the trip.
+                        Pagar con tarjeta es una opción rápida y conveniente. Haga clic en el botón para
+                        agregar una nueva tarjeta El importe se cobrará después del viaje.
                     </div>
                 </div>
                 <!--Payment Options Container End-->
@@ -269,16 +342,17 @@
                                     <div>GL-278-LG</div>
                                 </div>
                                 <div class="float-right request-btn">
-                                    <button type="button" class="btn btn-transparent">Request</button>
+                                    <button type="button" class="btn btn-transparent">Confirmar</button>
                                 </div>
                                 <div class="float-right ride-status hidden">
                                     <span class="text-uppercase pending-request float-right font-13"><span
                                             class="pending-spinner fas fa-spinner fa-spin primary-color font-13"></span>
                                         Pending</span>
                                     <span
-                                        class="text-uppercase just-approved float-right font-13 hidden">Approved</span>
+                                        class="text-uppercase just-approved float-right font-13 hidden">Aprobado</span>
                                     <span class="miles-till-arrival hidden">2.850</span>
-                                    <span class="text-uppercase on-the-way float-right font-13 hidden">on the way</span>
+                                    <span class="text-uppercase on-the-way float-right font-13 hidden">
+                                        en camino</span>
                                     <div>
                                         <a href="chat.html" class="btn pending-icon message"><span
                                                 class="fas fa-comments"></span></a>
@@ -293,8 +367,8 @@
 
                         <!--More Information About Chosen Car Container Start-->
                         <div class="tapped-car-more-info">
-                            <button type="button" class="cancel-trip btn btn-transparent text-uppercase">Cancel
-                                Trip</button>
+                            <button type="button" class="cancel-trip btn btn-transparent text-uppercase">Cancelar
+                                viaje</button>
                             <div class="more-info-container">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -334,13 +408,14 @@
                         </div>
                     </div>
                     <div class="text-center trip-desc-info">
-                        <div class="trip-desc-question">How Was Your Trip ?</div>
-                        <div class="please-rate">Please rate, your feedback will help improve driving experience.</div>
+                        <div class="trip-desc-question">Por que cancelas tu viaje?</div>
+                        <div class="please-rate">Por favor dejanos saber tus motivos para poder mejorar nuestro
+                            servicio.</div>
                     </div>
                     <div class="comment-info">
-                        <span class="comment-label"> * </span> Comments
+                        <span class="comment-label"> * </span> Feedback
                         <textarea class="w-100"></textarea>
-                        <button class="btn btn-primary text-uppercase">Submit Review</button>
+                        <button class="btn btn-primary text-uppercase">Enviar</button>
                     </div>
                 </div>
                 <!--Submit Review Container End-->
@@ -355,7 +430,7 @@
                 <div class="modal-body">
                     <div class="text-center">
                         <span class="fas fa-spinner fa-spin"></span>
-                        <div class="label-title">Searching Driver...</div>
+                        <div class="label-title">Buscando conductor...</div>
                     </div>
                 </div>
             </div>
@@ -390,7 +465,8 @@
                                         </div>
                                     </div>
                                     <div class="activate-btn">
-                                        <a href="/index-user" type="button" class="btn btn-dark font-weight-normal">Activar</a>
+                                        <a href="/index-user" type="button"
+                                            class="btn btn-dark font-weight-normal">Activar</a>
                                     </div>
                                 </div>
                                 <!--Promocode Container End-->
