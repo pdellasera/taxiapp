@@ -16,6 +16,12 @@ global.config = {
   location: location,
 };
 
+// app.use((req, res, next) => {
+//   if (req.header('x-forwarded-proto') !== 'https'   &&  process.env.PORT  )
+//     res.redirect(`https://${req.header('host')}${req.url}`);
+//   else
+//     next();
+// });
 mvc.middlewareBefore.push(expressLocale({
   "priority": ["cookie", "accept-language", "default"],
   "default": "en-GB"

@@ -113,7 +113,7 @@ function renderDirectionsPolylines(response, map) {
 
 function fromSetRouteToAddRoute() {
     $('.title').text("Hacia donde viajas");
-    $('.gm-style > div:first-child').show("slow");
+    //$('.gm-style > div:first-child').show("slow");
     $('.back-to-map').addClass('hidden');
 }
 var map;
@@ -143,10 +143,10 @@ const myCoord = () =>
 
 const getLocation = async () => {
     const response = await myCoord();
-    console.log(response)
+    //console.log(response)
     startCoord.latitud = response.coords.latitude
     startCoord.longitud = response.coords.longitude,
-    startCoord.position = response.coords
+        startCoord.position = response.coords
     cookie.set("currentPosition", JSON.stringify(startCoord), 1)
 
 };
@@ -228,6 +228,9 @@ function AutocompleteDirectionsHandler(map) {
                 self.destinationPlaceId = null;
             }
         });
+    // AQUI SE DEBE CARGAR POR DEFECTO LA DIRECCION PRINCIPAL DEL USUARIO
+    $("#origin-input").val("Urbanización La Floresta, Las Lomas, Panamá")
+
     var originInput = document.getElementById('origin-input');
     var originInputContainer = document.getElementById('origin-input-container');
     var destinationInput = document.getElementById('destination-input');
@@ -256,7 +259,6 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
 
     autocomplete.addListener('place_changed', function () {
         var place = autocomplete.getPlace();
-
         if (!place.place_id) {
             $('.request-ride-btn').addClass('hidden');
             return;
@@ -281,7 +283,7 @@ AutocompleteDirectionsHandler.prototype.route = function () {
     $('.request-ride-btn').removeClass('hidden');
     var lat = currentPosition.latitud
     var lon = currentPosition.longitud
-    var origin = new google.maps.LatLng(lat, lon)
+    var origin = $("#origin-input").val()//new google.maps.LatLng(lat, lon)
     this.directionsService.route(
         {
             origin: origin,
@@ -293,9 +295,9 @@ AutocompleteDirectionsHandler.prototype.route = function () {
                 var icons = {
                     start: new google.maps.MarkerImage(
                         // URL
-                        '',
+                        '../images/icons8-user-location-40.png',
                         // (width,height)
-                        new google.maps.Size(26, 21),
+                        new google.maps.Size(58, 53),
                         // The origin point (x,y)
                         new google.maps.Point(0, 0),
                         // The anchor point (x,y)
