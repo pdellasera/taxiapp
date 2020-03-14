@@ -14,6 +14,14 @@ var location = "";
 global.config = {
   lang: lang.get(),
   location: location,
+  mongo: {
+    connection: "",
+    dbSession: ""
+  },
+  session: {
+    expireAfterMinutes: 60,
+    secret: ""
+  }
 };
 
 // app.use((req, res, next) => {

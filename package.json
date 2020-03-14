@@ -17,6 +17,7 @@
     "express-locale": "^2.0.0",
     "moment": "^2.24.0",
     "mysql-connector-plugdo-js": "^1.0.0",
+    "plugdo-mongo": "^1.0.3",
     "plugdo-node": "^1.0.3"
   },
   "devDependencies": {
