@@ -38,7 +38,7 @@
                         <span class="fas fa-location-arrow location-icon-rotate map-input-icon"></span>
                         <div class="map-input display-flex">
                             <input id="origin-input" class="controls flex-1" type="text"
-                                placeholder="Enter an origin location">
+                                placeholder="Ubicación actual">
                             <span class="mic"><img src="../icons/microphone.svg" alt="Microphone Icon"></span>
                             <span class="remove">
                                 <img src="../icons/cross-light.svg" alt="Remove Icon Light Color">
@@ -65,11 +65,15 @@
             <!--Google Maps End-->
 
             <div class="not-map">
-
+                
                 <!--Request Ride Button Container Start-->
                 <div class="request-ride-btn hidden">
                     <button type="button" class="btn btn-primary">
                         Solicitar transporte</button>
+                </div>
+                <div class="trigger_current_position">
+                    <button type="button" class="btn btn-primary currentPosition" onclick="getLocation()">
+                        Comparte tu Ubicación</button>
                 </div>
                 <!--Request Ride Button Container End-->
 
@@ -146,78 +150,8 @@
                         <button type="button" class="btn btn-primary">Confirmar</button>
                     </div>
                 </div> -->
-                <!--Choose a Car Container End-->
 
-                <!--INFORMACION DEL COSTO DE TU RECORRIDO-->
-                <div class="row hidden">
-                    <div class="col-sm-6 col-md-12 col-lg-12">
-                        <div class="card mr-exp">
-                           <div class="ride-options-bottom">
-                            <div class="about-section mt-3">
-                                <div class="about-section-1 hidden">
-                                    <div class="about-section-title">
-                                        Taxis: <strong>$5.00</strong> / 6.85 km /
-                                        <span class="black-text">3 Minutes</span>
-                                    </div>
-                                    <div class="about-section-more">
-                                        NOTE: Esta es una estimación aproximada. El costo real puede variar según
-                                        al trafico.
-                                    </div>
-                                </div>
-                                <div class="about-section-2">
-                                    <div class="about-section-title">
-                                        <div class="about-section-title">
-                                            Costo aproximado: <strong>$7.00</strong> / 6.85 km /
-                                            <span class="black-text">7 Minutes</span>
-                                        </div>
-                                    </div>
-                                    <div class="about-section-more">
-                                        NOTE: Esta es una estimación aproximada. El costo real puede variar según
-                                        al trafico.
-                                    </div>
-                                </div>
-                                <div class="about-section-3 hidden">
-                                    <div class="about-section-title">
-                                        <div class="about-section-title">
-                                            SUV: <strong>$10.50</strong> / 6.85 km /
-                                            <span class="black-text">10 Minutes</span>
-                                        </div>
-                                    </div>
-                                    <div class="about-section-more">
-                                        NOTE: Esta es una estimación aproximada. El costo real puede variar según
-                                        al trafico.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="payment-options">
-                                <div class="send-wishes-container">
-                                    <div class="float-left wishes">
-                                        <img src="../icons/wishes.svg" class="h-100" alt="Wishes Icon">
-                                    </div>
-                                    <div class="payment-option-content">
-                                        Deseo
-                                        <span class="payment-options-more">Escribe lo que deseas en el servicio</span>
-                                    </div>
-                                </div>
-                                <div class="default-payment-method-container display-flex">
-                                    <div class="float-left wishes">
-                                        <img src="../icons/cash.svg" alt="Cash Icon" class="h-100">
-                                    </div>
-                                    <div class="payment-option-content">
-                                        Efectivo
-                                        <span class="payment-options-more">Metodo de pago por defecto</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div> 
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <!--Choose a Car Container End-->
-
+               
                 <!--Wish Container Start-->
                 <div class="wish-container hidden">
                     <div class="close-wish">
@@ -437,12 +371,12 @@
         </div>
     </div>
     <!--Modal End-->
-    <!-- Modal Start-->
+
+    <!-- Modal Start PROMOCODE-->
     <div class="modal fade" id="promoCode" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content search">
                 <div class="modal-body">
-
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
                             <div class="rest-container mt-15">
@@ -477,7 +411,13 @@
             </div>
         </div>
     </div>
-    <!--Modal End-->
+    <!--Modal End PROMOCODE-->
+
+    <!-- Modal Start INFOTRAVEL-->
+    <div id="messageContainer">
+        <plugdo-show-travel style="display: none;" src="/component/mostrar-recorrido.html"></plugdo-show-travel>
+     </div>
+    <!--Modal End INFOTRAVER-->
     <% include ../partials/scripts/scripts%>
 </body>
 

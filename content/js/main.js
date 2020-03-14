@@ -7,7 +7,7 @@ document.onreadystatechange = function () {
 }
 $(document).ready(function () {
     'use strict';
-
+  
     //Uncomment if you wish to auto redirect without click on the logo on the page loading
     // if($('.loading-logo.customer').length>0){
     //     setTimeout(function(){
@@ -84,10 +84,13 @@ $(document).ready(function () {
 
     $('.request-ride-btn').on('click', function () {
         $(this).addClass('hidden');
+        var travelInfo = cookie.get("travelInfo")
+        console.log(travelInfo)
         $('.ride-options-bottom').removeClass('hidden');
     });
 
-    $('.send-wishes-container').on('click', function () {
+    $(document).on('click','.send-wishes-container', function () {
+        console.log("d")
         var wishContainer = $('.ride-options-bottom').height();
         $('.ride-options-bottom').addClass('hidden');
         $('.wish-container').removeClass('hidden').height(wishContainer);
@@ -570,3 +573,67 @@ function closeMenuInLoadPage() {
     $('#load .fa-spin').show();
     $('#load').css('visibility', 'hidden');
 }
+
+
+
+
+/**ESETE ELEMENTO ES EL QUE SE DEBE MOSTTRAR PARA LAS DIRECCIONES DE DESTINO Y ORIGENa
+ EL HTML
+<div class="popup">
+  <span class="popuptext" id="myPopup">Popup text...</span>
+</div>
+
+CSS
+/* Popup container
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top)
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup)
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup)
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+/**************************************************************************************/

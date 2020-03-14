@@ -2,7 +2,7 @@ var requestedMarker;
 var directionsDisplayMap;
 var directionsServiceMap;
 
-
+var app = new appExec()
 
 function multipleRouteHide() {
     directionsDisplayMap.setMap(null);
@@ -119,57 +119,28 @@ function fromSetRouteToAddRoute() {
 var map;
 var directionsDisplay;
 var currentLocation;
+
+// PROVINCIA POR DEFECTO DAVID CHIRIQUI
 const startCoord = {
-    latitud: "",
-    longitud: "",
+    latitud: 8.42729,
+    longitud: -82.4308472,
     position: []
 };
 
-const myCoord = () =>
-    new Promise((resolve, reject) => {
-        const geoSuccess = position => resolve(position);
-        const geoFailure = error => reject(error);
-        const geoOptions = {
-            timeout: 5000,
-            maximumAge: 5000,
-            enableHighAccuracy: false
-        };
-        navigator.geolocation.getCurrentPosition(
-            geoSuccess,
-            geoFailure,
-            geoOptions
-        );
-    });
-
-const getLocation = async () => {
-    const response = await myCoord();
-    //console.log(response)
-    startCoord.latitud = response.coords.latitude
-    startCoord.longitud = response.coords.longitude,
-        startCoord.position = response.coords
-    cookie.set("currentPosition", JSON.stringify(startCoord), 1)
-
+async function getLocation() {
+    const response = await app.currentPosition();
+    console.log(response)
+    var lat = response.coords.latitude;
+    var lng = response.coords.longitude
+    startCoord.latitud = lat
+    startCoord.longitud = lng
+    cookie.set("currentPosition", JSON.stringify(startCoord), 1);
+    //var newLatLng = new google.maps.LatLng(lat, lng);
+    //marker.setPosition(newLatLng);
+    app.addMarkers({ lat: lat, lng: lng }, '../images/icons8-user-location-40.png', 'Urbanizacion La Foresta', 'l', true)  
 };
 
-getLocation()
-function initMap() {
-    setTimeout(function () {
-        var lat = startCoord.latitud
-        var long = startCoord.longitud
-        map = new google.maps.Map(document.getElementById('map'), {
-            mapTypeControl: false,
-            center: { lat: lat, lng: long },
-            zoom: 15,
-            fullscreenControl: false,
-        });
-        directionsDisplay = new google.maps.DirectionsRenderer();
-        new AutocompleteDirectionsHandler(map);
-        $(window).on('resize', function () {
-            google.maps.event.trigger(map, 'resize');
-        })
-        makeMarker({ lat: lat, lng: long }, '../images/icons8-user-location-40.png', 'Urbanizacion La Foresta', true)
-    }, 500)
-}
+
 
 function hideMapRequestPin() {
     requestedMarker.setVisible(false);
@@ -191,7 +162,7 @@ function showMapRequestPin() {
             new google.maps.Size(36, 28)
         )
     };
-    makeMarker({ lat: 42.274006, lng: -71.810181 }, icons.request, "Request Pin", false);
+    app.addMarkers({ lat: 42.274006, lng: -71.810181 }, icons.request, "Request Pin", false);
     setTimeout(function () {
         if (!$("img[src='../icons/car-start-position.svg']").parent().hasClass('pulse')) {
             $("img[src='../icons/car-start-position.svg']").parent().addClass('pulse').css('opacity', 1);
@@ -229,7 +200,7 @@ function AutocompleteDirectionsHandler(map) {
             }
         });
     // AQUI SE DEBE CARGAR POR DEFECTO LA DIRECCION PRINCIPAL DEL USUARIO
-    $("#origin-input").val("Urbanización La Floresta, Las Lomas, Panamá")
+    //$("#origin-input").val("Urbanización La Floresta, Las Lomas, Panamá")
 
     var originInput = document.getElementById('origin-input');
     var originInputContainer = document.getElementById('origin-input-container');
@@ -261,6 +232,7 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
         var place = autocomplete.getPlace();
         if (!place.place_id) {
             $('.request-ride-btn').addClass('hidden');
+            $('.trigger_current_position').removeClass('hidden')
             return;
         }
         if (mode === 'ORIG') {
@@ -275,19 +247,23 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
 AutocompleteDirectionsHandler.prototype.route = function () {
     if (!this.destinationPlaceId) {
         $('.request-ride-btn').addClass('hidden');
+        $('.trigger_current_position').removeClass('hidden')
         return;
     }
     var me = this;
     var currentPosition = JSON.parse(cookie.get("currentPosition"))
-    //console.log(currentPosition)
+    console.log(currentPosition)
     $('.request-ride-btn').removeClass('hidden');
+    $('.trigger_current_position').addClass('hidden')
     var lat = currentPosition.latitud
     var lon = currentPosition.longitud
-    var origin = $("#origin-input").val()//new google.maps.LatLng(lat, lon)
+    var origin = new google.maps.LatLng(lat, lon) //new google.maps.LatLng(lat, lon) $("#origin-input").val()
+    var destino = $("#destination-input").val()
+
     this.directionsService.route(
         {
             origin: origin,
-            destination: $("#destination-input").val(),
+            destination: destino,
             travelMode: this.travelMode
         },
         function (response, status) {
@@ -295,14 +271,15 @@ AutocompleteDirectionsHandler.prototype.route = function () {
                 var icons = {
                     start: new google.maps.MarkerImage(
                         // URL
+                        //'',
                         '../images/icons8-user-location-40.png',
                         // (width,height)
-                        new google.maps.Size(58, 53),
+                        new google.maps.Size(26, 21),
                         // The origin point (x,y)
                         new google.maps.Point(0, 0),
                         // The anchor point (x,y)
                         new google.maps.Point(13, 16),
-                        new google.maps.Size(26, 21)
+                        //new google.maps.Size(26, 21)
                     ),
                     end: new google.maps.MarkerImage(
                         // URL
@@ -318,14 +295,21 @@ AutocompleteDirectionsHandler.prototype.route = function () {
                 me.directionsDisplayMap.setMap(map);
                 me.directionsDisplayMap.setOptions({
                     polylineOptions: {
-                        strokeColor: '#FFD300',
+                        strokeColor: '#000',
                         strokeWeight: 5
                     }
                 });
+                console.log(response)
                 me.directionsDisplayMap.setDirections(response);
                 var leg = response.routes[0].legs[0];
-                makeMarker(leg.start_location, icons.start, "Route Start");
-                makeMarker(leg.end_location, icons.end, 'Route End');
+                console.log(leg)
+                var travelInfo = {
+                    dist:leg.distance.text,
+                    time:leg.duration.text
+                }
+                cookie.set("travelInfo", JSON.stringify(travelInfo), 1);
+                app.addMarkers(leg.start_location, icons.start, "Route Start");
+                app.addMarkers(leg.end_location, icons.end, 'Route End');
                 setTimeout(function () {
                     var currents = $("#map img[src='../icons/circle.svg']").parent();
                     currents.each(function (index, current) {
@@ -343,44 +327,6 @@ AutocompleteDirectionsHandler.prototype.route = function () {
     map.setZoom(12);
     $(window).trigger('resize');
 };
-var markers = [];
-
-function hideMarkers() {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null); //Remove the marker from the map
-    }
-}
-
-function makeMarker(position, icon, title, listener = false) {
-    var marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        icon: icon,
-        draggable: true,
-        title: title,
-        animation: google.maps.Animation.DROP,
-    });
-    markers.push(marker);
-    // var addListenerToMarker = function (myMarker) {
-    //     marker.addListener('click', function () {
-    //         var elem = this
-    //         console.log(elem)
-    //        $('.tapped-car-info').removeClass('hidden');
-    //     });
-    // }
-    // if (listener) {
-    //     // add a closure for listener manage
-    //     addListenerToMarker(marker);
-
-    // }
-    google.maps.event.addListener(marker, 'dragend', function () {
-        geocodePosition(marker.getPosition());
-    });
-    map.setCenter(position);
-    map.setZoom(15);
-    requestedMarker = marker;
-}
-
 
 function geocodePosition(pos) {
     console.log(pos)

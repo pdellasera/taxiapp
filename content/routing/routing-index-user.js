@@ -12,7 +12,6 @@ $(document).ready(function () {
         classInParent: true,
         postLoad: function () {
             $(document).ready(function () {
-                console.log("d")
                 $(".needHide").css("display", "none")
                 view.load()
                 closeMenuInLoadPage()
@@ -25,7 +24,6 @@ $(document).ready(function () {
         classInParent: true,
         postLoad: function () {
             $(document).ready(function () {
-                console.log("d")
                 $(".needHide").css("display", "none")
                 view.load()
                 closeMenuInLoadPage()
@@ -38,7 +36,6 @@ $(document).ready(function () {
         classInParent: true,
         postLoad: function () {
             $(document).ready(function () {
-                console.log("d")
                 $(".needHide").css("display", "none")
                 view.load()
             })
@@ -50,7 +47,6 @@ $(document).ready(function () {
         classInParent: true,
         postLoad: function () {
             $(document).ready(function () {
-                console.log("d")
                 $(".needHide").css("display", "none")
                 view.load()
             })
@@ -150,6 +146,7 @@ $(document).ready(function () {
             name: "user",
             page: "/secure/user-dashboard.html",
             postLoad: function () {
+                new appExec().init()
                 view.load();
             }
         }
@@ -170,4 +167,3 @@ $(document).ready(function () {
     routing.modal();
 
 });
-var app = new ShoperizApplication();
