@@ -14,6 +14,14 @@ var location = "";
 global.config = {
   lang: lang.get(),
   location: location,
+  mongo: {
+    connection: "",
+    dbSession: ""
+  },
+  session: {
+    expireAfterMinutes: 60,
+    secret: ""
+  }
 };
 
 mvc.middlewareBefore.push(expressLocale({
