@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header/header') %>
+
+<body>
+
+    <!--Loading Container Start-->
+    <div id="load" class="loading-overlay display-flex flex-column justify-content-center align-items-center">
+        <div class="primary-color font-28 fas fa-spinner fa-spin"></div>
+    </div>
+    <!--Loading Container End-->
+    <div id="container" class="container"></div>
+    <!--Main Menu Start-->
+    <%- include('../partials/menu/menu') %>
+    <!--Main Menu End-->
+    <figure class="chat-icon-wrapper" onclick="showCart()">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 172 172"
+            style=" fill:#000000;">
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g>
+                    <path d="M114.66667,50.16667l-21.5,21.5l-21.5,-21.5h14.33333v-28.66667h14.33333v28.66667z"
+                        fill="#ff5722"></path>
+                    <path
+                        d="M64.5,114.66667c-3.94167,0 -7.16667,-3.225 -7.16667,-7.16667v-35.83333h-14.33333v35.83333c0,11.825 9.675,21.5 21.5,21.5h68.08333v-14.33333z"
+                        fill="#af191a"></path>
+                    <path
+                        d="M143.33333,35.83333l-21.5,48.01667c-0.71667,1.43333 -1.79167,2.15 -3.225,2.15h-53.39167c-1.43333,0 -2.86667,-1.075 -3.225,-2.50833l-17.55833,-52.31667c-2.15,-5.73333 -7.525,-9.675 -13.61667,-9.675h-12.9v14.33333h12.9l19.70833,59.48333c1.075,2.86667 3.58333,5.01667 6.80833,5.01667h68.08333c2.86667,0 5.375,-1.79167 6.45,-4.3l27.23333,-60.2z"
+                        fill="#af191a"></path>
+                    <path
+                        d="M17.91667,21.5c-3.95804,0 -7.16667,3.20863 -7.16667,7.16667c0,3.95804 3.20863,7.16667 7.16667,7.16667c3.95804,0 7.16667,-3.20863 7.16667,-7.16667c0,-3.95804 -3.20863,-7.16667 -7.16667,-7.16667z"
+                        fill="#ffffff"></path>
+                    <path
+                        d="M121.83333,129c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75zM68.08333,129c-5.93706,0 -10.75,4.81294 -10.75,10.75c0,5.93706 4.81294,10.75 10.75,10.75c5.93706,0 10.75,-4.81294 10.75,-10.75c0,-5.93706 -4.81294,-10.75 -10.75,-10.75z"
+                        fill="#af191a"></path>
+                    <g fill="#ffffff">
+                        <path
+                            d="M121.83333,136.16667c-1.97902,0 -3.58333,1.60431 -3.58333,3.58333c0,1.97902 1.60431,3.58333 3.58333,3.58333c1.97902,0 3.58333,-1.60431 3.58333,-3.58333c0,-1.97902 -1.60431,-3.58333 -3.58333,-3.58333zM68.08333,136.16667c-1.97902,0 -3.58333,1.60431 -3.58333,3.58333c0,1.97902 1.60431,3.58333 3.58333,3.58333c1.97902,0 3.58333,-1.60431 3.58333,-3.58333c0,-1.97902 -1.60431,-3.58333 -3.58333,-3.58333z">
+                        </path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </figure>
+    <!-- Modal Start-->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <a href="#" title="Close" class="modal-close">X</a>
+            <div id="main_content">
+                <div class="container detail-section-2">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-12">
+                            <img src="./images/menuImg/profile_1533634102.png" class="img-fluid detail-product-img"
+                                alt="Responsive image">
+                        </div>
+                        <input type="hidden" name="item_id" id="item_id" value="3">
+                        <div class="col-lg-7 col-md-7 col-sm-6 col-12">
+                            <div class="detail-product-box">
+                                <div class="detail-descri">
+                                    <div class="detail-product-head">
+                                        <h4>California Turkey Burger</h4>
+                                        <input type="hidden" name="menu_name" id="menu_name"
+                                            value="California Turkey Burger">
+                                        <p> €<span id="price">7.50</span></p>
+                                        <input type="hidden" id="origin_price" name="origin_price" value="7.50">
+                                    </div>
+                                    <div class="detail-product-content">
+                                        <p>Avocado, Cucumber, Feta Cheese, Pico de gallo, Chipotle Ranch and Lettuce on
+                                            Wheat Bun</p>
+                                    </div>
+
+                                </div>
+                                <div class="detail-ingredients">
+                                    <div class="detail-ingredients-heading">
+                                        <h2>Ingredients</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="detail-ingredients-head detail-ingredients-head-1">
+                                                <h3>Free Ingredients</h3>
+                                                <form>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-0" class="checkbox-custom"
+                                                            name="interdient" value="31">
+                                                        <label for="checkbox-0" class="checkbox-custom-label">
+                                                            Wheat Bun
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-1" class="checkbox-custom"
+                                                            name="interdient" value="32">
+                                                        <label for="checkbox-1" class="checkbox-custom-label">
+                                                            No Salt
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-2" class="checkbox-custom"
+                                                            name="interdient" value="33">
+                                                        <label for="checkbox-2" class="checkbox-custom-label">
+                                                            Pepper Jack
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-3" class="checkbox-custom"
+                                                            name="interdient" value="34">
+                                                        <label for="checkbox-3" class="checkbox-custom-label">
+                                                            Swiss Cheese
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-4" class="checkbox-custom"
+                                                            name="interdient" value="35">
+                                                        <label for="checkbox-4" class="checkbox-custom-label">
+                                                            BBQ Sauce
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-5" class="checkbox-custom"
+                                                            name="interdient" value="259">
+                                                        <label for="checkbox-5" class="checkbox-custom-label">
+                                                            testdata
+                                                        </label>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="detail-ingredients-head">
+                                                <h3>Paid Ingredients</h3>
+                                                <form>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-6" class="checkbox-custom"
+                                                            name="interdient" value="25" onclick="addprice('1.0','6')">
+                                                        <label for="checkbox-6" class="checkbox-custom-label">
+                                                            Texas Toast
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-7" class="checkbox-custom"
+                                                            name="interdient" value="26" onclick="addprice('1.0','7')">
+                                                        <label for="checkbox-7" class="checkbox-custom-label">
+                                                            Pretzel Bun
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-8" class="checkbox-custom"
+                                                            name="interdient" value="27" onclick="addprice('2.50','8')">
+                                                        <label for="checkbox-8" class="checkbox-custom-label">
+                                                            Add Patty
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-9" class="checkbox-custom"
+                                                            name="interdient" value="28" onclick="addprice('0.80','9')">
+                                                        <label for="checkbox-9" class="checkbox-custom-label">
+                                                            Cheese
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-10" class="checkbox-custom"
+                                                            name="interdient" value="29"
+                                                            onclick="addprice('0.80','10')">
+                                                        <label for="checkbox-10" class="checkbox-custom-label">
+                                                            Sub Veggie
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <input type="checkbox" id="checkbox-11" class="checkbox-custom"
+                                                            name="interdient" value="30" onclick="addprice('1.0','11')">
+                                                        <label for="checkbox-11" class="checkbox-custom-label">
+                                                            Feta Cheese
+                                                        </label>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail-plus-button min-add-button">
+                                    <div class="input-group">
+                                        <a data-decrease="">
+                                            <i class="fa fa-minus" aria-hidden="true" onclick="decreaseValue()"></i>
+                                        </a>
+                                        <input type="text" id="number" name="qty" value="1">
+                                        <a data-increase="">
+                                            <i class="fa fa-plus" aria-hidden="true" onclick="increaseValue()"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="javascript:addtocart()">
+                                    <div class="detail-plus-add-cart">
+                                        <span>Add to cart</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Modal End-->
+
+        <!-- Modal Start PROMOCODE-->
+        <div class="modal fade" id="promoCode" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content search">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="rest-container mt-15">
+                                    <div class="text-center header-icon-logo-margin header-icon-logo-margin-extra">
+                                        <img src="../images/logo-main.svg" alt="Main Logo">
+                                    </div>
+                                    <div class="address-title">Código Promocional</div>
+
+                                    <!--Promocode Container Start-->
+                                    <div class="promocode-container pb-0">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span>
+                                                        <img src="../icons/ticket.svg" alt="Ticket Promo Icon">
+                                                    </span>
+                                                </div>
+                                                <input class="form-control" type="text" autocomplete="off" name="promo"
+                                                    placeholder="Código de promocion">
+                                            </div>
+                                        </div>
+                                        <div class="activate-btn">
+                                            <a href="/index-user" type="button"
+                                                class="btn btn-dark font-weight-normal">Activar</a>
+                                        </div>
+                                    </div>
+                                    <!--Promocode Container End-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal End PROMOCODE-->
+
+        <!-- Modal Start INFOTRAVEL-->
+        <div id="messageContainer">
+            <plugdo-show-travel style="display: none;" src="/component/mostrar-recorrido.html"></plugdo-show-travel>
+        </div>
+        <!--Modal End INFOTRAVER-->
+        <%- include('../partials/scripts/scripts') %>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-    <% include ../partials/header/header%>
+    <%- include('../partials/header/header') %>
 <body>
 
 <!--Loading Container Start-->
@@ -26,7 +26,7 @@
 
         <div class="rest-container">
             <div class="text-center header-icon-logo-margin header-icon-logo-margin-extra">
-                <img src="../images/logo-main.svg" alt="Main Logo">
+                <img src="../images/logo-food.png" class="w-75">
             </div>
 
             <!--Sign Up Container Start-->
@@ -65,7 +65,7 @@
                     <!--Sign Up Form Field End-->
 
                     <div class="form-submit-button">
-                        <a href="/index-user" class="btn btn-primary text-uppercase font-weight-normal">Sign In</a>
+                        <a href="/home" class="btn btn-primary text-uppercase font-weight-normal">Sign In</a>
                     </div>
                 </form>
             </div>
@@ -88,6 +88,6 @@
     <!--Terms And Conditions Agreement Container End-->
 
 </div>
-<% include ../partials/scripts/scripts%>
+<%- include('../partials/scripts/scripts') %>
 </body>
 </html>

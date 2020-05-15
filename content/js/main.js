@@ -637,3 +637,16 @@ CSS
   to {opacity:1 ;}
 }
 /**************************************************************************************/
+
+function showCart(){
+    if($(".chat-icon-wrapper").hasClass("show-cart")){
+        $(".chat-icon-wrapper").removeClass("show-cart")
+    }else{
+        $(".chat-icon-wrapper").addClass("show-cart")
+    }
+}
+
+
+
+
+ 

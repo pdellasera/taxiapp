@@ -30,7 +30,16 @@ mvc.controller({
       location: global.config.location
   };
 })
-
+mvc.controller({
+  name: "home",
+  action: "home",
+  path:"/home"
+}, function (req) {
+  return {
+      title: "Home",
+      location: global.config.location
+  };
+})
 mvc.controller({
   name: "home",
   action: "sign-in",
